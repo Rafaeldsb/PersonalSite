@@ -1,0 +1,40 @@
+$imgHeightHomeSmall: 300px;
+$imgHeightHomeMedium: 550px;
+$imgHeightHomeBig: 300px;
+$sizesImgHome: 200px, 350px, 400px;
+$sizesBreak: 768px, 992px, 5000px;
+
+*, body {
+    margin:0;
+    padding:0;
+}
+#foto-init {
+    width:100%;
+    img{
+        width:100%;
+        padding: 0;
+    
+        @media screen and(max-width: 768px){
+            height: $imgHeightHomeSmall;
+        }
+
+        @media screen and(min-width: 768px){
+            height: $imgHeightHomeMedium;
+        }
+
+        @media screen and(min-width: 992px){
+            height: $imgHeightHomeBig;
+        }
+    }
+}
+
+#home {
+    
+    background-color: #7384DE;
+
+    img {
+        @media screen and(max-width:992px){
+            
+        }
+    }
+}

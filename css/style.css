@@ -1,0 +1,23 @@
+*, body {
+  margin: 0;
+  padding: 0; }
+
+#foto-init {
+  width: 100%; }
+  #foto-init img {
+    width: 100%;
+    padding: 0; }
+    @media screen and (max-width: 768px) {
+      #foto-init img {
+        height: 300px; } }
+    @media screen and (min-width: 768px) {
+      #foto-init img {
+        height: 550px; } }
+    @media screen and (min-width: 992px) {
+      #foto-init img {
+        height: 300px; } }
+
+#home {
+  background-color: #7384DE; }
+
+/*# sourceMappingURL=style.css.map */
