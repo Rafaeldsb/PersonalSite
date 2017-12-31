@@ -1,40 +1,171 @@
-$imgHeightHomeSmall: 300px;
-$imgHeightHomeMedium: 550px;
-$imgHeightHomeBig: 300px;
+/* Variáveis */
+$imgHeightHomeSmall: 40%;
+$imgHeightHomeMedium: 50%;
+$imgHeightHomeBig: 40%;
 $sizesImgHome: 200px, 350px, 400px;
 $sizesBreak: 768px, 992px, 5000px;
+
+$bg-home: #7384DE;
+
+
+/* Media Queries */
+$phone: "screen and(max-width:768px)";
+$tablet: "(min-width: 768px) and (max-width: 1023px)";
+$desktop: "(min-width: 1024px)";
+
+@mixin triangulo-up($size, $color){
+    width: 0;
+	height: 0;
+	border-left: $size solid transparent;
+	border-right: $size solid transparent;
+	border-bottom: $size solid $color;
+}
+
+@mixin triangulo-right($size, $color) {
+	width: 0;
+	height: 0;
+	border-top: $size solid transparent;
+	border-left: $size solid $color;
+	border-bottom: $size solid transparent;
+}
 
 *, body {
     margin:0;
     padding:0;
 }
+html, body, section, article {
+    height: 100%;
+    margin: 0;
+}
+
+.dark {
+    background-color: rgba($color: #000000, $alpha: 0.3);
+    color: white;
+    @media #{$phone}{
+        padding: 10px;
+    }
+
+    @media #{$tablet}{
+        padding: 15px;
+    }
+
+    @media #{$desktop}{
+        padding: 20px;
+    }
+}
+
+
 #foto-init {
     width:100%;
+    @media #{$phone}{
+        height: $imgHeightHomeSmall;
+    }
+
+    @media #{$tablet}{
+        height: $imgHeightHomeMedium;
+    }
+
+    @media #{$desktop}{
+        height: $imgHeightHomeBig;
+    }
     img{
         width:100%;
+        height: 100%;
         padding: 0;
     
-        @media screen and(max-width: 768px){
-            height: $imgHeightHomeSmall;
-        }
 
-        @media screen and(min-width: 768px){
-            height: $imgHeightHomeMedium;
-        }
-
-        @media screen and(min-width: 992px){
-            height: $imgHeightHomeBig;
-        }
     }
 }
 
 #home {
-    
-    background-color: #7384DE;
+    position: relative;
+    background-color: $bg-home;
+    overflow: hidden;
+    margin-top: 0;
+    height:100%;
+    padding: 20px 10% 20px 10%;
+    article {
+        overflow: hidden;
+    }
 
-    img {
-        @media screen and(max-width:992px){
-            
+    .dev {
+        img {
+            border-radius:50%;
+            display:block;
+            margin: auto auto;
+            position: relative;
+            z-index: 10;
         }
+        p{
+            text-align: center;
+        }
+        @media #{$phone}{   
+            img{         
+                width: 200px;
+                height:200px;
+            }
+        }
+    
+        @media #{$tablet}{
+            float:right;
+            img {
+                width:300px;
+                height: 300px;
+            }
+        }
+    
+        @media #{$desktop}{
+            float:right;
+            img {
+                width: 350px;
+                height: 350px;
+            }
+        }
+    }
+
+    .dark {
+        position: relative;
+        
+        p {
+            position: relative;
+            z-index: 2;
+        }
+
+        @media #{$phone}{
+            width: 80%;
+            margin: 0 auto;
+            margin-top: 30px;
+            margin-bottom: 30px;
+
+            .triangulo{
+                @include triangulo-up(30px, rgba(#000, 0.3));
+                position: absolute;
+                left: 50%;
+                bottom:100%;
+                transform: translateX(-50%);
+                z-index: 1;
+            }
+
+
+        }
+    
+        @media #{$tablet}, #{$desktop}{
+            width: 40%;
+            margin-top: 72px;
+
+            .triangulo {
+                @include triangulo-right(30px, rgba(#000, 0.3));
+                position: absolute;
+                left: 100%;
+                top:50%;
+                transform: translateY(-50%);
+                z-index: 1;
+            }
+        }
+    
+        @media #{$desktop}{
+            width: 60%;
+            margin: 120px  0;
+        }  
     }
 }
